@@ -7,7 +7,7 @@ V2ray Vless/Vmess + WS and TLS with caddy Installer + WARP Tunnel for IPv4 and I
 ```
 ### Install
 ```bash
-bash -c "$(curl -L https://raw.githubusercontent.com/azadrahorg/v2rayCaddy-vless-vmess-ws-tls/main/v2rayCaddy(vless%2Bvmess%2Bws%2Btls).sh)"
+bash -c "$(curl -L https://raw.githubusercontent.com/azadrahorg/v2rayCaddy-vless-vmess-ws-tls/main/v2rayCaddy-vless-vmess-ws-tls.sh)"
 ```
 ### Uninstall
 ```
