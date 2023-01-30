@@ -234,11 +234,11 @@ if [[ -z $netstack ]]; then
 
     #Local IP
     if [[ $netstack == "4" ]]; then
-        ip=$(curl -4 -s https://api.myip.la)
+        ip=$(curl -4 -s https://api.myip.la | jq -r '.ip')
     elif [[ $netstack == "6" ]]; then 
-        ip=$(curl -6 -s https://api.myip.la)
+        ip=$(curl -6 -s https://api.myip.la | jq -r '.ip')
     else
-        ip=$(curl -s https://api.myip.la)
+        ip=$(curl -s https://api.myip.la | jq -r '.ip')
     fi
 
     if [[ $domain_resolve != $ip ]]; then
