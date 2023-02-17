@@ -234,33 +234,33 @@ if [[ -z $netstack ]]; then
 
     #Local IP
     if [[ $netstack == "4" ]]; then
-        ip=$(curl -4 -s https://api.myip.la | jq -r '.ip')
+        ip=$(curl -4s https://api.myip.la)
     elif [[ $netstack == "6" ]]; then 
-        ip=$(curl -6 -s https://api.myip.la | jq -r '.ip')
+        ip=$(curl -6s https://api.myip.la)
     else
-        ip=$(curl -s https://api.myip.la | jq -r '.ip')
+        ip=$(curl -s https://api.myip.la)
     fi
 
     if [[ $domain_resolve != $ip ]]; then
         echo
-        echo -e "$red domain name resolution error Domain resolution error....$none"
+        echo -e " $red domain name resolution error Domain resolution error.... $none "
         echo
-        echo -e "Your domain name:$yellow$domain$none did not resolve to:$cyan$ip$none"
+        echo -e " Your domain name: $yellow$domain$none did not resolve to: $cyan$ip$none "
         echo
         if [[ $domain_resolve != "null" ]]; then
-            echo -e "Your domain name is currently resolved to:$cyan$domain_resolve$none"
+            echo -e " Your domain name is currently resolved to: $cyan$domain_resolve$none "
         else
-            echo -e "Domain not resolved$none detected by $red" 
+            echo -e "  $red can't detect domain name resolution Domain not resolved $none  "
         fi
         echo
-        echo -e " Remarks... If your domain name is resolved using$yellow Cloudflare$none ... On the DNS settings page, please set$yellow proxy status$none to$yellow DNS only$none , and Xiao Yunduo becomes gray."
+        echo -e " Remarks... If your domain name is resolved using $yellow Cloudflare $none ... On the DNS settings page, please set $yellow proxy status $none to $yellow DNS only $none , and Xiao Yunduo becomes gray. "
         echo "Notice...If you use Cloudflare to resolve your domain, on 'DNS' setting page, 'Proxy status' should be 'DNS only' but not 'Proxied'."
         echo
         exit 1
     else
         echo
         echo
-        echo -e "$yellow domain name resolution =${cyan} I'm sure$none has already been resolved"
+        echo -e " $yellow domain name resolution = ${cyan} I'm sure $none has already been resolved "
         echo "----------------------------------------------------------------"
         echo
     fi
